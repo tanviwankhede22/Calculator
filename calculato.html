@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Grade Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            text-align: center;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            width: 320px;
+            margin: auto;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px #3335;
+        }
+
+        h2 {
+            color: #5b4bb7;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 6px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        button {
+            margin-top: 12px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            background: #5b4bb7;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #764ba2;
+        }
+
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f1efff;
+            border-radius: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>🎓 Grade Calculator</h2>
+
+    <input type="number" id="m1" placeholder="Subject 1 Marks">
+    <input type="number" id="m2" placeholder="Subject 2 Marks">
+    <input type="number" id="m3" placeholder="Subject 3 Marks">
+    <input type="number" id="m4" placeholder="Subject 4 Marks">
+    <input type="number" id="m5" placeholder="Subject 5 Marks">
+
+    <button onclick="calculate()">Calculate Result</button>
+
+    <div id="result">Enter marks to see result</div>
+</div>
+
+<script>
+function calculate() {
+    let total = Number(m1.value) + Number(m2.value) +
+                Number(m3.value) + Number(m4.value) +
+                Number(m5.value);
+
+    let percentage = total / 5;
+    let grade;
+
+    if (percentage >= 90) grade = "A+";
+    else if (percentage >= 80) grade = "A";
+    else if (percentage >= 70) grade = "B";
+    else if (percentage >= 60) grade = "C";
+    else if (percentage >= 50) grade = "D";
+    else grade = "F";
+
+    document.getElementById("result").innerHTML =
+        "📊 Total: " + total + "/500<br>" +
+        "📈 Percentage: " + percentage + "%<br>" +
+        "🏆 Grade: " + grade;
+}
+</script>
+
+</body>
+</html>
